@@ -8,7 +8,7 @@ import Layout from "@/components/Layout";
 import { API_URL } from "@/config/index";
 import styles from "@/styles/Form.module.css";
 
-const AddEventPage = ({ token = null }) => {
+const AddEventPage = ({ token }) => {
   const [values, setValues] = useState({
     name: "",
     performers: "",
@@ -37,7 +37,7 @@ const AddEventPage = ({ token = null }) => {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+
       },
       body: JSON.stringify(values),
     });
