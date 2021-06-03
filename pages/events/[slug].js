@@ -19,7 +19,11 @@ const EventPage = ({ event }) => {
         <ToastContainer />
         {event.image && (
           <div className={styles.image}>
-            <Image src={event.image} width={960} height={600} />
+            <Image
+              src={event.image.formats.medium.url}
+              width={960}
+              height={600}
+            />
           </div>
         )}
 
@@ -38,8 +42,7 @@ const EventPage = ({ event }) => {
   );
 };
 export async function getServerSideProps({ query: { slug } }) {
-  console.log(slug);
-  const res = await fetch(`${API_URL}/api/events?slug=${slug}`);
+  const res = await fetch(`${API_URL}/events?slug=${slug}`);
   const events = await res.json();
   return {
     props: {
