@@ -2,7 +2,7 @@ import { useState } from "react";
 import { API_URL } from "@/config/index";
 import styles from "@/styles/Form.module.css";
 
-const ImageUpload = ({ evtId, imageUploaded, token }) => {
+const ImageUpload = ({ eventId, imageUploaded, token }) => {
   const [image, setImage] = useState(null);
 
   const handleSubmit = async (e) => {
@@ -10,14 +10,14 @@ const ImageUpload = ({ evtId, imageUploaded, token }) => {
     const formData = new FormData();
     formData.append("files", image);
     formData.append("ref", "events");
-    formData.append("refId", evtId);
+    formData.append("refId", eventId);
     formData.append("field", "image");
 
     const res = await fetch(`${API_URL}/upload`, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
+      // headers: {
+      //   Authorization: `Bearer ${token}`,
+      // },
       body: formData,
     });
 
