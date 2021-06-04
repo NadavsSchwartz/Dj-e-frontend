@@ -1,12 +1,9 @@
-import Head from "next/head";
-import Link from "next/link";
 import Layout from "@/components/Layout";
-import { API_URL } from "@/config/index";
 import EventItem from "../../components/EventItem";
-const PER_PAGE = 5;
+import Pagination from "@/components/Pagination";
+import { API_URL, PER_PAGE } from "@/config/index";
 
 const EventsPage = ({ events, page, total }) => {
-  const lastPage = Math.ceil(total / PER_PAGE);
   return (
     <Layout>
       <h1>Upcoming Events</h1>
@@ -15,20 +12,7 @@ const EventsPage = ({ events, page, total }) => {
         <EventItem key={event.id} event={event} />
       ))}
 
-      {page > 1 && (
-        <Link href={`/events?page=${page - 1}`}>
-          <a href="" className="btn-secondary">
-            Prev
-          </a>
-        </Link>
-      )}
-      {page < lastPage && (
-        <Link href={`/events?page=${page + 1}`}>
-          <a href="" className="btn-secondary">
-            Next
-          </a>
-        </Link>
-      )}
+      <Pagination total={total} page={page} />
     </Layout>
   );
 };
