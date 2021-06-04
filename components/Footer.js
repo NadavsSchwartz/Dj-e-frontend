@@ -1,7 +1,7 @@
 import Link from "next/link";
 import styles from "../styles/Footer.module.css";
 
-export default function Footer() {
+const Footer = () => {
   return (
     <footer className={styles.footer}>
       <p>Copyright &copy; DJ Events 2021</p>
@@ -10,4 +10,5 @@ export default function Footer() {
       </p>
     </footer>
   );
-}
+};
+export default Footer;

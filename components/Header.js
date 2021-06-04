@@ -2,7 +2,7 @@ import Link from "next/link";
 import Search from "./Search";
 import styles from "../styles/Header.module.css";
 
-export default function Header() {
+const Header = () => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -32,4 +32,5 @@ export default function Header() {
       </nav>
     </header>
   );
-}
+};
+export default Header;

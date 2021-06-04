@@ -37,6 +37,9 @@ const EventPage = ({ event }) => {
         <Link href="/events">
           <a className={styles.back}>{"<"} Go Back</a>
         </Link>
+        <Link href={`/events/edit/${event.id}`}>
+          <a className={styles.back}>{"<"} edit</a>
+        </Link>
       </div>
     </Layout>
   );
