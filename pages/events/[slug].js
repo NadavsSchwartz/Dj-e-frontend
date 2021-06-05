@@ -8,9 +8,13 @@ import styles from "@/styles/Event.module.css";
 
 import { FaPencilAlt, FaTimes } from "react-icons/fa";
 const EventPage = ({ event }) => {
+  console.log(event);
   const router = useRouter();
   return (
     <Layout>
+      <Link href="/events">
+        <a className={styles.back}>{"<"} Go Back</a>
+      </Link>
       <div className={styles.event}>
         <span>
           {new Date(event.date).toLocaleDateString("en-US")} at {event.time}
@@ -20,7 +24,11 @@ const EventPage = ({ event }) => {
         {event.image && (
           <div className={styles.image}>
             <Image
-              src={event.image.formats.medium.url}
+              src={
+                event.image.formats.medium
+                  ? event.image.formats.medium.url
+                  : event.image.formats.small.url
+              }
               width={960}
               height={600}
             />
@@ -34,9 +42,6 @@ const EventPage = ({ event }) => {
         <h3>Venue: {event.venue}</h3>
         <p>{event.address}</p>
 
-        <Link href="/events">
-          <a className={styles.back}>{"<"} Go Back</a>
-        </Link>
         <Link href={`/events/edit/${event.id}`}>
           <a className={styles.back}>{"<"} edit</a>
         </Link>

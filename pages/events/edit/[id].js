@@ -46,7 +46,7 @@ export default function EditEventPage({ event, token }) {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
-        // Authorization: `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(values),
     });
@@ -196,7 +196,7 @@ export async function getServerSideProps({ params: { id }, req }) {
   return {
     props: {
       event,
-    //   token,
+      token,
     },
   };
 }

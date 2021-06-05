@@ -1,3 +1,4 @@
+import { parseCookies } from "@/helpers/index";
 import { FaUser } from "react-icons/fa";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -5,15 +6,21 @@ import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import AuthContext from "@/context/AuthContext";
+import { useRouter } from "next/router";
 import styles from "@/styles/AuthForm.module.css";
 
 const LoginPage = () => {
+  const router = useRouter();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-    const { login, error } = useContext(AuthContext);
+  const { login, error } = useContext(AuthContext);
 
-    useEffect(() => error && toast.error(error));
+  useEffect(() => {
+    if (error) {
+      toast.error(error);
+    }
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -57,5 +64,20 @@ const LoginPage = () => {
     </Layout>
   );
 };
-
+export async function getServerSideProps({ req }) {
+  const { token } = parseCookies(req);
+  if (token) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/account/dashboard",
+      },
+      props: {},
+    };
+  } else {
+    return {
+      props: {},
+    };
+  }
+}
 export default LoginPage;
