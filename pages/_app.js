@@ -1,6 +1,6 @@
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
-import "@fortawesome/fontawesome-free/css/all.min.css";
+import "../styles/global.css";
 import "styles/tailwind.css";
 import { AuthProvider } from "@/context/AuthContext";
 import Router from "next/router";

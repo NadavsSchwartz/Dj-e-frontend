@@ -5,17 +5,17 @@ import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
 import AuthContext from "@/context/AuthContext";
 import { useContext, useState } from "react";
 
-const Header = () => {
+const Header = (props) => {
   const { user, logout } = useContext(AuthContext);
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
     <>
-      <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg  shadow">
+      <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg shadow text-white">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <Link href="/">
-              <a className="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
+              <a className=" text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
                 DJE
               </a>
             </Link>
@@ -37,8 +37,8 @@ const Header = () => {
             <ul className="flex flex-col lg:flex-row list-none mr-auto">
               <li className="flex items-center">
                 <Link href="/events">
-                  <a className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
-                    <i className="text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2" />
+                  <a className="hover:text-orange px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
+                    <i className="text-white far fa-file-alt text-lg leading-lg mr-2" />
                     Events
                   </a>
                 </Link>
@@ -49,14 +49,14 @@ const Header = () => {
                 <>
                   <li className="flex items-center">
                     <Link href="/events/add">
-                      <a className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
+                      <a className="hover:text-blueGray-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
                         Add Event
                       </a>
                     </Link>
                   </li>
                   <li className="flex items-center">
                     <Link href="/account/dashboard">
-                      <a className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
+                      <a className="hover:text-blueGray-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
                         Dashboard
                         <span className="lg:hidden inline-block ml-2">
                           Star
@@ -78,7 +78,7 @@ const Header = () => {
                 <>
                   <li className="flex items-center">
                     <Link href="/account/login">
-                      <a className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
+                      <a className="hover:text-blueGray-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
                         <FaSignInAlt /> Login
                       </a>
                     </Link>
