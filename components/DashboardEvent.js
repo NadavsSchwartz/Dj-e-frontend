@@ -1,28 +1,30 @@
 import Link from "next/link";
 import { FaPencilAlt, FaTimes } from "react-icons/fa";
-import styles from "@/styles/DashboardEvent.module.css";
 
 const DashboardEvent = ({ event, handleDelete }) => {
-  
   return (
-    <div className={styles.event}>
-      <h4>
+    <div
+      className="text-white grid  grid-cols-2"
+      style={{
+        backgroundImage: `url(${event.image.formats.thumbnail.url})`,
+      }}
+    >
+      <h4 className="text-3xl ml-3">
         <Link href={`/events/${event.slug}`}>
-          <a>{event.name}</a>
+          <a>Event Name: {event.name}</a>
         </Link>
       </h4>
-      <Link href={`/events/edit/${event.id}`}>
-        <a className={styles.edit}>
-          <FaPencilAlt /> <span>Edit Event</span>
+      <div className="flex flex-row-reverse space-x-4 space-x-reverse text-2xl">
+        <Link href={`/events/edit/${event.id}`}>
+          <a>
+            <FaPencilAlt /> <span>Edit Event</span>
+          </a>
+        </Link>
+
+        <a href="#" onClick={() => handleDelete(event.id)}>
+          <FaTimes /> <span>Delete</span>
         </a>
-      </Link>
-      <a
-        href="#"
-        className={styles.delete}
-        onClick={() => handleDelete(event.id)}
-      >
-        <FaTimes /> <span>Delete</span>
-      </a>
+      </div>
     </div>
   );
 };

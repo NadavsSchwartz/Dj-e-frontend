@@ -9,7 +9,7 @@ import { useState } from "react";
 const DashboardPage = ({ events, token }) => {
   const router = useRouter();
   const [imagePreview, setImagePreview] = useState(
-    events[0].image ? events[0].image.formats.thumbnail.url : null
+    events.image ? events.image.formats.thumbnail.url : null
   );
 
   const deleteEvent = async (id) => {
@@ -123,7 +123,7 @@ const DashboardPage = ({ events, token }) => {
             </div>
             {events.length > 0 ? (
               events.map((evt) => (
-                <div style={{ backgroundImage: { imagePreview } }}>
+                <div className="mt-5 mb-5">
                   <DashboardEvent
                     key={evt.id}
                     event={evt}

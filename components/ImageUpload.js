@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { API_URL } from "@/config/index";
-import styles from "@/styles/Form.module.css";
 
 const ImageUpload = ({ eventId, imageUploaded, token }) => {
   const [image, setImage] = useState(null);
@@ -15,9 +14,9 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
 
     const res = await fetch(`${API_URL}/upload`, {
       method: "POST",
-      // headers: {
-      //   Authorization: `Bearer ${token}`,
-      // },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
       body: formData,
     });
 
@@ -31,10 +30,10 @@ const ImageUpload = ({ eventId, imageUploaded, token }) => {
   };
 
   return (
-    <div className={styles.form}>
+    <div className="container">
       <h1>Upload Event Image</h1>
       <form onSubmit={handleSubmit}>
-        <div className={styles.file}>
+        <div className="row">
           <input type="file" onChange={handleFileChange} />
         </div>
         <input type="submit" value="Upload" className="btn" />
