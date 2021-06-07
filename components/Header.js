@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Search from "./Search";
-import styles from "../styles/Header.module.css";
-import { FaSignInAlt, FaSignOutAlt } from "react-icons/fa";
+import { FaSignInAlt } from "react-icons/fa";
 import AuthContext from "@/context/AuthContext";
 import { useContext, useState } from "react";
 
@@ -11,7 +10,7 @@ const Header = (props) => {
 
   return (
     <>
-      <nav className="top-0 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg shadow text-white">
+      <nav className="top-0 bg-blueGray-800 fixed z-50 w-full flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg shadow text-white">
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <Link href="/">
@@ -58,16 +57,14 @@ const Header = (props) => {
                     <Link href="/account/dashboard">
                       <a className="hover:text-blueGray-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
                         Dashboard
-                        <span className="lg:hidden inline-block ml-2">
-                          Star
-                        </span>
+                        <span className="lg:hidden inline-block">Star</span>
                       </a>
                     </Link>
                   </li>
                   <li className="flex items-center">
                     <button
                       onClick={() => logout()}
-                      className="bg-blueGray-700 text-white active:bg-blueGray-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg outline-none focus:outline-none lg:mr-1 lg:mb-0 ml-3 mb-3 ease-linear transition-all duration-150"
+                      className="bg-blueGray-700 text-white active:bg-blueGray-600 text-xs font-bold uppercase px-4 py-2 rounded shadow hover:shadow-lg lg:mr-1 lg:mb-0 ml-2 mb-2"
                     >
                       Logout
                     </button>

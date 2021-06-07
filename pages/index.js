@@ -2,10 +2,11 @@ import Layout from "@/components/Layout";
 import { API_URL } from "@/config/index";
 import Link from "next/link";
 import EventItem from "../components/EventItem";
+import { parseCookies } from "../helpers";
 
-const HomePage = ({ events }) => {
+const HomePage = () => {
   return (
-    <main className=" ">
+    <main>
       <Layout>
         <div className="relative flex items-center justify-center min-h-screen-75">
           <div
@@ -266,28 +267,16 @@ const HomePage = ({ events }) => {
     </main>
   );
 };
-// export async function getStaticProps() {
-//   const res = await fetch(`${API_URL}/events?_sort=date:ASC&_limit=3`);
-//   console.log(res);
-//   const events = await res.json();
-
-//   return {
-//     props: { events },
-//     revalidate: 1,
-//   };
-// }
-
-export default HomePage;
-{
-  /* {events.length === 0 && <h3>No events to show</h3>}
-
-      {events.map((event) => (
-        <EventItem key={event.id} event={event} />
-      ))}
-
-      {events.length > 0 && (
-        <Link href="/events">
-          <a className="btn-secondary">View All Events</a>
-        </Link>
-      )} */
+export async function getServerSideProps({ req }) {
+  const { token } = parseCookies(req);
+  if (token) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/account/dashboard",
+      },
+      props: {},
+    };
+  }
 }
+export default HomePage;
