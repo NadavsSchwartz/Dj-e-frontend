@@ -4,7 +4,7 @@ import { useRouter } from "next/router";
 import Header from "./Header";
 import Footer from "./Footer";
 import { container } from "tailwindcss/defaultTheme";
-// import Showcase from "./Showcase";
+
 const Layout = ({ title, keywords, description, children }) => {
   return (
     <div className="w-full h-full">
@@ -27,7 +27,7 @@ const Layout = ({ title, keywords, description, children }) => {
 export default Layout;
 
 Layout.defaultProps = {
-  title: "DJ Events | Find the hottest parties",
-  description: "Find the latest DJ and other musical events",
-  keywords: "music, dj, edm, events",
+  title: "DJE| Find And Share Events",
+  description: "Find the latest events",
+  keywords: "music, dj, edm, events, share, socialmedia",
 };

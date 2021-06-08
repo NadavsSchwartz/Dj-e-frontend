@@ -1,5 +1,4 @@
 import Layout from "@/components/Layout";
-import styles from "@/styles/404.module.css";
 
 import { FaExclamationTriangle } from "react-icons/fa";
 import Link from "next/link";
@@ -7,7 +6,7 @@ import Link from "next/link";
 const NotFound = () => {
   return (
     <Layout title="Page Not Found">
-      <div className={styles.error}>
+      <div className="text-center">
         <h1>
           <FaExclamationTriangle /> 404
         </h1>

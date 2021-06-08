@@ -126,11 +126,11 @@ export default function EditEventPage({ event, token }) {
                 </h1>
                 <ToastContainer />
                 <form onSubmit={handleSubmit} className="w-full ">
-                  <div className="container ">
+                  <div className="container bg-blueGray-300">
                     <div className="text-center mt-2 ">
                       <label
                         htmlFor="name"
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        className=" uppercase text-blueGray-600 text-xs font-bold mb-2"
                       >
                         Name
                       </label>
@@ -140,14 +140,13 @@ export default function EditEventPage({ event, token }) {
                         name="name"
                         value={values.name}
                         onChange={handleInputChange}
-                        className="w-full text-gray-700 py-1 px-2 appearance-none border-none"
-                        style={{ appearance: "none" }}
+                        className="w-full text-gray-700 py-1 px-2 border-solid bg-blueGray-100"
                       />
                     </div>
                     <div className="text-center mt-5">
                       <label
                         htmlFor="performers"
-                        className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
+                        className=" uppercase text-blueGray-600 text-xs font-bold mb-2"
                       >
                         Performers
                       </label>
@@ -157,62 +156,87 @@ export default function EditEventPage({ event, token }) {
                         id="performers"
                         value={values.performers}
                         onChange={handleInputChange}
-                        className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                        className="border-solid w-full text-gray-700 mr-3 py-1 px-2 bg-blueGray-100"
                       />
                     </div>
                     <div className="text-center mt-5">
-                      <label htmlFor="venue">Venue</label>
+                      <label
+                        htmlFor="venue"
+                        className=" uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      >
+                        Venue
+                      </label>
                       <input
                         type="text"
                         name="venue"
                         id="venue"
                         value={values.venue}
                         onChange={handleInputChange}
-                        className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                        className="bg-blueGray-100 w-full text-gray-700 mr-3 py-1 px-2 border-solid "
                       />
                     </div>
                     <div className="text-center mt-5">
-                      <label htmlFor="address">Address</label>
+                      <label
+                        htmlFor="address"
+                        className=" uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      >
+                        Address
+                      </label>
                       <input
                         type="text"
                         name="address"
                         id="address"
                         value={values.address}
                         onChange={handleInputChange}
-                        className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                        className="bg-blueGray-100 border-solid w-full text-gray-700 mr-3 py-1 px-2 "
                       />
                     </div>
                     <div className="text-center mt-5">
-                      <label htmlFor="date">Date</label>
+                      <label
+                        htmlFor="date"
+                        className=" uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      >
+                        Date
+                      </label>
                       <input
                         type="date"
                         name="date"
                         id="date"
                         value={moment(values.date).format("yyyy-MM-DD")}
-                        className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                        className=" border-solid w-full text-gray-700 mr-3 py-1 px-2 bg-blueGray-100"
                         onChange={handleInputChange}
                       />
                     </div>
                     <div className="text-center mt-5">
-                      <label htmlFor="time">Time</label>
+                      <label
+                        htmlFor="time"
+                        className=" uppercase text-blueGray-600 text-xs font-bold mb-2"
+                      >
+                        Time
+                      </label>
                       <input
                         type="text"
                         name="time"
                         id="time"
                         value={values.time}
-                        className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                        className=" border-solid w-full text-gray-700 mr-3 py-1 px-2 bg-blueGray-100"
                         onChange={handleInputChange}
                       />
                     </div>
                   </div>
                   <div className="text-center mt-5">
-                    <label htmlFor="description">Event Description</label>
+                    <label
+                      htmlFor="description"
+                      className=" uppercase text-blueGray-600 text-xs font-bold mb-2"
+                    >
+                      Event Description
+                    </label>
                     <textarea
-                      type="text"
+                      type="textarea"
                       name="description"
                       id="description"
                       value={values.description}
-                      className="appearance-none bg-transparent border-none w-full text-gray-700 mr-3 py-1 px-2 leading-tight focus:outline-none"
+                      className="bg-blueGray-100 border-solid w-full text-gray-700 mr-3 py-1 px-2 "
                       onChange={handleInputChange}
                     ></textarea>
                   </div>
@@ -223,7 +247,12 @@ export default function EditEventPage({ event, token }) {
                   />
                 </form>
 
-                <h2 className="text-center mt-5">Event Image</h2>
+                <h2
+                  className="text-center mt-5 uppercase text-blueGray-600 text-xs font-bold mb-2
+                "
+                >
+                  Event Image
+                </h2>
                 {imagePreview ? (
                   <div className="flex justify-center mt-3">
                     <Image src={imagePreview} height={200} width={270} />

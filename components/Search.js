@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import styles from "@/styles/Search.module.css";
 
 const Search = () => {
   const [term, setTerm] = useState("");
@@ -14,7 +13,7 @@ const Search = () => {
   };
 
   return (
-    <div className={styles.search}>
+    <div>
       <form onSubmit={handleSubmit}>
         <input
           type="text"

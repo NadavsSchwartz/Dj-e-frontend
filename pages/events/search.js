@@ -9,15 +9,34 @@ const SearchPage = ({ events }) => {
   const router = useRouter();
 
   return (
-    <Layout title="Search Results">
-      <Link href="/events">Go Back</Link>
-      <h1>Search Results for {router.query.term}</h1>
-      {events.length === 0 && <h3>No events to show</h3>}
+    <main>
+      <Layout title="Search Results">
+        <div className="py-20 min-h-screen-75">
+          <div className="text-xl m-4">
+            <Link href="/events">
+              <a
+                href="/events"
+                className="bg-blueGray-800 rounded-lg p-3 text-white"
+              >
+                Go Back
+              </a>
+            </Link>
+          </div>
+          <h1 className="text-center text-xl uppercase">
+            Search Results for {router.query.term}
+          </h1>
+          {events.length === 0 && (
+            <h3 className="text-center text-xl uppercase mt-5 ">
+              No events to show, try again please
+            </h3>
+          )}
 
-      {events.map((event) => (
-        <EventItem key={event.id} event={event} />
-      ))}
-    </Layout>
+          {events.map((event) => (
+            <EventItem key={event.id} event={event} />
+          ))}
+        </div>
+      </Layout>
+    </main>
   );
 };
 

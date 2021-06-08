@@ -3,6 +3,7 @@ import Search from "./Search";
 import { FaSignInAlt } from "react-icons/fa";
 import AuthContext from "@/context/AuthContext";
 import { useContext, useState } from "react";
+import SearchPage from "pages/events/search";
 
 const Header = (props) => {
   const { user, logout } = useContext(AuthContext);
@@ -46,6 +47,10 @@ const Header = (props) => {
             <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
               {user ? (
                 <>
+                  <li className="flex items-center text-black">
+                    <Search />
+                  </li>
+
                   <li className="flex items-center">
                     <Link href="/events/add">
                       <a className="hover:text-blueGray-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">

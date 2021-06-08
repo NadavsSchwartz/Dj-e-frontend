@@ -2,6 +2,7 @@ import Layout from "@/components/Layout";
 import { API_URL } from "@/config/index";
 
 const EventPage = ({ event }) => {
+  console.log(event);
   return (
     <main className="">
       <Layout>
@@ -44,13 +45,13 @@ const EventPage = ({ event }) => {
                 <div className="flex flex-wrap justify-center">
                   <div className="w-full lg:w-4/12  lg:order-1 flex justify-center">
                     <div className="relative ">
-                      {event.image ? (
+                      {event.image.formats ? (
                         <img
                           alt={event.name}
                           src={
                             event.image.formats.medium
                               ? event.image.formats.medium.url
-                              : event.image.formats.small.url
+                              : event.image.formats.thumbnail.url
                           }
                           className="shadow-xl rounded-lg h-auto align-middle border-none -m-16 -ml-20 lg:-ml-16 max-w-200-px"
                         />

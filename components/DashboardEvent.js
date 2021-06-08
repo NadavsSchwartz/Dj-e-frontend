@@ -27,7 +27,36 @@ const DashboardEvent = ({ event, handleDelete }) => {
     <div className=" sm:w-1/2 w-full 2xl:w-1/5 flex flex-col items-center py-8 md:py-12 rounded-lg border">
       <div className="w-full flex items-center justify-center">
         <div className="text-center items-center">
-          <img
+          {event.image.formats ? (
+            <img
+              alt={event.name}
+              src={
+                event.image.formats.medium
+                  ? event.image.formats.medium.url
+                  : event.image.formats.thumbnail.url
+              }
+              style={{
+                minHeight: "200px",
+                maxHeight: "235px",
+                minWidth: "200px",
+                maxWidth: "235px",
+              }}
+              className="rounded-lg"
+            />
+          ) : (
+            <img
+              alt={event.name}
+              src={"/images/event-default.svg"}
+              style={{
+                minHeight: "200px",
+                maxHeight: "235px",
+                minWidth: "200px",
+                maxWidth: "235px",
+              }}
+              className="rounded-lg"
+            />
+          )}
+          {/* <img
             src={
               event.image
                 ? event.image.formats.thumbnail.url
@@ -41,7 +70,7 @@ const DashboardEvent = ({ event, handleDelete }) => {
               maxWidth: "235px",
             }}
             className="rounded-lg"
-          />
+          /> */}
           <Link href={`/events/${event.slug}`}>
             <a className="mt-2 text-xs sm:text-sm md:text-base font-semibold text-center text-blueGray-800">
               Event Name: {event.name}

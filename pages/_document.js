@@ -14,8 +14,8 @@ class MyDocument extends Document {
           <meta charSet="utf-8" />
           <meta name="theme-color" content="#000000" />
         </Head>
-        <body className="text-blueGray-700 antialiased">
-          <div id="page-transition"></div>
+        <body className="text-blueGray-700 ">
+          <div></div>
           <Main />
           <NextScript />
           <div id="modal-root"></div>

@@ -3,16 +3,38 @@ import Link from "next/link";
 const EventItem = ({ event }) => {
   return (
     <div className="flex flex-col md:flex-row  text-white rounded-lg shadow-xl border mt-5  mx-2 ">
-      <div className="object-contain w-full " style={{ maxHeight: "380px" }}>
-        <img
-          className="inset-0 h-full w-full object-cover"
-          src={
-            event.image
-              ? event.image.formats.medium.url
-              : "/images/event-default.svg"
-          }
-          alt={event.name}
-        />
+      <div
+        className="object-contain w-full cursor-pointer "
+        style={{ maxHeight: "380px" }}
+      >
+        <Link href={`/events/${event.slug}`}>
+          {event.image.formats ? (
+            <img
+              alt={event.name}
+              src={
+                event.image.formats.medium
+                  ? event.image.formats.medium.url
+                  : event.image.formats.thumbnail.url
+              }
+              className="inset-0 h-full w-full object-cover"
+            />
+          ) : (
+            <img
+              alt={event.name}
+              src={"/images/event-default.svg"}
+              className="inset-0 h-full w-full object-cover"
+            />
+          )}
+          {/* <img
+            className="inset-0 h-full w-full object-cover"
+            src={
+              event.image
+                ? event.image.formats.medium.url
+                : "/images/event-default.svg"
+            }
+            alt={event.name}
+          /> */}
+        </Link>
       </div>
       <div className="w-full py-4 px-6 bg-blueGray-800 flex flex-col justify-between">
         <h3 className="font-bold underline text-lg truncate uppercase text-center">
