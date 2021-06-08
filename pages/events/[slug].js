@@ -1,57 +1,215 @@
-import { useRouter } from "next/router";
-import { ToastContainer, toast } from "react-toastify";
-import Link from "next/link";
-import Image from "next/image";
 import Layout from "@/components/Layout";
 import { API_URL } from "@/config/index";
-import styles from "@/styles/Event.module.css";
 
-import { FaPencilAlt, FaTimes } from "react-icons/fa";
 const EventPage = ({ event }) => {
-  console.log(event);
-  const router = useRouter();
   return (
-    <Layout>
-      <Link href="/events">
-        <a className={styles.back}>{"<"} Go Back</a>
-      </Link>
-      <div className={styles.event}>
-        <span>
-          {new Date(event.date).toLocaleDateString("en-US")} at {event.time}
-        </span>
-        <h1>{event.name}</h1>
-        <ToastContainer />
-        {event.image && (
-          <div className={styles.image}>
-            <Image
-              src={
-                event.image.formats.medium
-                  ? event.image.formats.medium.url
-                  : event.image.formats.small.url
-              }
-              width={960}
-              height={600}
-            />
+    <main className="">
+      <Layout>
+        <section className="relative block h-600-px">
+          <div
+            className="absolute top-0 w-full h-full bg-center bg-cover"
+            style={{
+              backgroundImage: "url('/images/main_background.jpg')",
+            }}
+          >
+            <span
+              id="blackOverlay"
+              className="w-full h-full absolute opacity-50 bg-black"
+            ></span>
           </div>
-        )}
+          <div
+            className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-16"
+            style={{ transform: "translateZ(0)" }}
+          >
+            <svg
+              className="absolute bottom-0 overflow-hidden"
+              xmlns="http://www.w3.org/2000/svg"
+              preserveAspectRatio="none"
+              version="1.1"
+              viewBox="0 0 2560 100"
+              x="0"
+              y="0"
+            >
+              <polygon
+                className="text-blueGray-200 fill-current"
+                points="2560 0 2560 100 0 100"
+              ></polygon>
+            </svg>
+          </div>
+        </section>
+        <section className="relative py-16 bg-blueGray-200">
+          <div className="container mx-auto px-4">
+            <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
+              <div className="px-6">
+                <div className="flex flex-wrap justify-center">
+                  <div className="w-full lg:w-4/12  lg:order-1 flex justify-center">
+                    <div className="relative ">
+                      {event.image ? (
+                        <img
+                          alt={event.name}
+                          src={
+                            event.image.formats.medium
+                              ? event.image.formats.medium.url
+                              : event.image.formats.small.url
+                          }
+                          className="shadow-xl  h-auto align-middle border-none -m-16 -ml-20 lg:-ml-16 max-w-200-px"
+                        />
+                      ) : (
+                        <img
+                          alt={event.name}
+                          src={"/images/event-default.svg"}
+                          className="shadow-xl h-auto bg-blueGray-200 align-middle -m-16 -ml-20 lg:-ml-16 max-w-200-px"
+                        />
+                      )}
+                    </div>
+                  </div>
+                  <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
+                    <div className="py-6 px-3 mt-32 sm:mt-0">
+                      <span className="text-xl  mr-3 font-bold  uppercase tracking-wide text-blueGray-600">
+                        0
+                      </span>
+                      <span className="text-md  text-blueGray-400">GOING</span>
+                    </div>
+                  </div>
+                  <div className="w-full lg:w-4/12 px-4 lg:order-1">
+                    <div className="flex justify-center py-4 lg:pt-4 pt-8">
+                      <div className="mr-4 p-3 text-center">
+                        <span className="text-2xl font-bold block uppercase tracking-wide text-blueGray-600">
+                          {event.name}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="text-center mt-12">
+                  <h3 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700">
+                    <i className="fas fa-calendar-alt mr-2 text-lg text-blueGray-400"></i>{" "}
+                    {new Date(event.date).toLocaleDateString("en-US")} at{" "}
+                    {event.time}
+                  </h3>
+                  <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+                    <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
+                    {event.address}
+                  </div>
+                  <div className="mb-2 text-blueGray-600 mt-10">
+                    <i className="fas fa-child mr-2 text-lg text-blueGray-400"></i>
+                    {event.performers}
+                  </div>
+                  <div className="mb-2 text-blueGray-600">
+                    <i className="fas fa-home mr-2 text-lg text-blueGray-400"></i>
+                    {event.venue}
+                  </div>
+                </div>
+                <div className="mt-10 py-10 border-t border-blueGray-200 text-center">
+                  <div className="flex flex-wrap justify-center">
+                    <div className="w-full lg:w-9/12 px-4">
+                      <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
+                        {event.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        {/* <section className="relative block h-600-px">
+      <Link href="/events">
+        <a className=""> Go Back</a>
+      </Link>
+          <div
+            className="absolute top-0 w-full h-full bg-center bg-cover"
+            style={{
+              backgroundImage:
+                "url('https://images.unsplash.com/photo-1499336315816-097655dcfbda?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2710&q=80')",
+            }}
+          >
+            {" "}
+            <span
+              id="blackOverlay"
+              className="w-full h-full absolute opacity-50 bg-black"
+            ></span>
+            <span>
+              {new Date(event.date).toLocaleDateString("en-US")} at {event.time}
+            </span>
+            <div
+              className="top-auto bottom-0 left-0 right-0 w-full absolute pointer-events-none overflow-hidden h-16"
+              style={{ transform: "translateZ(0)" }}
+            >
+              <svg
+                className="absolute bottom-0 overflow-hidden"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+                version="1.1"
+                viewBox="0 0 2560 100"
+                x="0"
+                y="0"
+              >
+                <polygon
+                  className="text-blueGray-200 fill-current"
+                  points="2560 0 2560 100 0 100"
+                ></polygon>
+              </svg>
+            </div>
+          </div>
+        </section>
+        <section className="relative py-16 bg-blueGray-200">
+          <div className="container mx-auto px-4">
+            <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg -mt-64">
+              <div className="px-6">
+                <div className="flex flex-wrap justify-center">
+                  <div className="w-full lg:w-3/12 px-4 lg:order-2 flex justify-center">
+                    <div className="relative">
+                      {event.image && (
+                        <img
+                          src={
+                            event.image.formats.medium
+                              ? event.image.formats.medium.url
+                              : event.image.formats.small.url
+                          }
+                        />
+                      )}
+                    </div>
+                  </div>
 
-        <h3>Performers:</h3>
-        <p>{event.performers}</p>
-        <h3>Description:</h3>
-        <p>{event.description}</p>
-        <h3>Venue: {event.venue}</h3>
-        <p>{event.address}</p>
-
-        <Link href={`/events/edit/${event.id}`}>
-          <a className={styles.back}>{"<"} edit</a>
-        </Link>
-      </div>
-    </Layout>
+                  <div className="w-full lg:w-4/12 px-4 lg:order-3 lg:text-right lg:self-center">
+                    <div className="py-6 px-3 mt-32 sm:mt-0"></div>
+                    <h1>{event.name}</h1>
+                    <ToastContainer />
+                  </div>
+                </div>
+                <div className="w-full lg:w-4/12 px-4 lg:order-1">
+                  <div className="flex justify-center py-4 lg:pt-4 pt-8">
+                    <div className="mr-4 p-3 text-center"></div>
+                    <h3>Performers:</h3>
+                    <p>{event.performers}</p>
+                  </div>
+                  <div className="mr-4 p-3 text-center">
+                    <h3>Description:</h3>
+                    <p>{event.description}</p>
+                  </div>
+                  <div className="lg:mr-4 p-3 text-center">
+                    <h3>Venue: {event.venue}</h3>
+                    <p>{event.address}</p>
+                  </div>
+                  <div className="text-center mt-12">
+                    <Link href={`/events/edit/${event.id}`}>
+                      <a className="text-xl font-bold uppercase"> edit event</a>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section> */}
+      </Layout>
+    </main>
   );
 };
 export async function getServerSideProps({ query: { slug } }) {
   const res = await fetch(`${API_URL}/events?slug=${slug}`);
   const events = await res.json();
+  console.log(events);
   return {
     props: {
       event: events[0],

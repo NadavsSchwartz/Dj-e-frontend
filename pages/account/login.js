@@ -7,7 +7,6 @@ import Link from "next/link";
 import Layout from "@/components/Layout";
 import AuthContext from "@/context/AuthContext";
 import { useRouter } from "next/router";
-import styles from "@/styles/AuthForm.module.css";
 
 const LoginPage = () => {
   const router = useRouter();

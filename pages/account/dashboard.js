@@ -34,14 +34,14 @@ const DashboardPage = ({ events, token }) => {
   return (
     <main>
       <Layout title="User Dashboard">
-        <div className="flex flex-wrap">
-          <div className="w-full">
+        <div className="flex flex-wrap h-screen">
+          <div className="w-full ">
             <div className="relative bg-blueGray-800 md:pt-32 pb-32 pt-12">
               <div className="px-4 md:px-10 mx-auto w-full">
                 <div className="flex flex-wrap">
                   {events.length > 0 ? (
                     <>
-                      <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+                      <div className="w-full lg:w-6/12 xl:w-4/12 px-4">
                         <CardStats
                           statSubtitle="ENGAGEMENT"
                           statTitle="0"
@@ -53,7 +53,7 @@ const DashboardPage = ({ events, token }) => {
                           statIconColor="bg-yellow-500"
                         />
                       </div>
-                      <div className="w-full lg:w-6/12 xl:w-3/12 px-4">
+                      <div className="w-full lg:w-6/12 xl:w-4/12 px-4">
                         <CardStats
                           statSubtitle="TOTAL EVENTS"
                           statTitle={events.length}
@@ -65,7 +65,7 @@ const DashboardPage = ({ events, token }) => {
                           statIconColor="bg-red-500"
                         />
                       </div>
-                      <div className="w-full lg:w-8/12 xl:w-10/12 px-4 py-6">
+                      <div className="w-full lg:w-8/12 xl:w-4/12 px-4 ">
                         <CardStats
                           statSubtitle="NEAREST EVENT"
                           statTitle={events[0].name}
@@ -104,14 +104,10 @@ const DashboardPage = ({ events, token }) => {
                           statIconColor="bg-red-500"
                         />
                       </div>
-                      <div className="w-full lg:w-10/12 xl:w-10/12 px-4">
+                      <div className="w-full lg:w-6/12 xl:w-10/12 px-4">
                         <CardStats
                           statSubtitle="NEAREST EVENT"
                           statTitle="N/A"
-                          statArrow=""
-                          statPercent="0"
-                          statPercentColor=""
-                          statDescripiron="Since last month"
                           statIconName="fas fa-calendar-week"
                           statIconColor="bg-red-500"
                         />
@@ -121,19 +117,24 @@ const DashboardPage = ({ events, token }) => {
                 </div>
               </div>
             </div>
-            {events.length > 0 ? (
-              events.map((evt) => (
-                <div className="mt-5 mb-5">
+            <div className="w-full flex items-center justify-center">
+              {events.length > 0 ? (
+                events.map((evt) => (
                   <DashboardEvent
                     key={evt.id}
                     event={evt}
                     handleDelete={deleteEvent}
                   />
-                </div>
-              ))
-            ) : (
-              <p>You currently have no events.</p>
-            )}
+                ))
+              ) : (
+                <p
+                  className="text-3xl text-center text-blueGray-800 underline mt-10"
+                  style={{ minHeight: "52vh" }}
+                >
+                  You currently have no events.
+                </p>
+              )}
+            </div>
           </div>
         </div>
       </Layout>
@@ -160,7 +161,6 @@ export async function getServerSideProps({ req }) {
   });
 
   const events = await res.json();
-  debugger;
 
   return {
     props: {

@@ -28,7 +28,7 @@ const Header = (props) => {
           </div>
           <div
             className={
-              "lg:flex flex-grow items-center bg-white lg:bg-opacity-0 lg:shadow-none" +
+              "lg:flex flex-grow items-center bg-blueGray-800 lg:bg-opacity-0 lg:shadow-none" +
               (navbarOpen ? " block" : " hidden")
             }
           >
@@ -57,7 +57,6 @@ const Header = (props) => {
                     <Link href="/account/dashboard">
                       <a className="hover:text-blueGray-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">
                         Dashboard
-                        <span className="lg:hidden inline-block">Star</span>
                       </a>
                     </Link>
                   </li>

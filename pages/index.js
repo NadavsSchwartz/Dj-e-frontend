@@ -277,6 +277,8 @@ export async function getServerSideProps({ req }) {
       },
       props: {},
     };
+  } else {
+    return { props: {} };
   }
 }
 export default HomePage;
