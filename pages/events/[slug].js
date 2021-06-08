@@ -52,7 +52,7 @@ const EventPage = ({ event }) => {
                               ? event.image.formats.medium.url
                               : event.image.formats.small.url
                           }
-                          className="shadow-xl  h-auto align-middle border-none -m-16 -ml-20 lg:-ml-16 max-w-200-px"
+                          className="shadow-xl rounded-lg h-auto align-middle border-none -m-16 -ml-20 lg:-ml-16 max-w-200-px"
                         />
                       ) : (
                         <img
