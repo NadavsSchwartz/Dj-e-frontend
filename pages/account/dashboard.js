@@ -153,7 +153,7 @@ export async function getServerSideProps({ req }) {
       props: {},
     };
   }
-  const res = await fetch(`${API_URL}/events/me`, {
+  const res = await fetch(`${API_URL}/events/me?_sort=date:ASC`, {
     method: "GET",
     headers: {
       Authorization: `Bearer ${token}`,

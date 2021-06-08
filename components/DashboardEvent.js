@@ -22,11 +22,11 @@ import { NEXT_URL } from "../config";
 
 const DashboardEvent = ({ event, handleDelete }) => {
   const shareUrl = `${NEXT_URL}/events/${event.id}`;
-  console.log(shareUrl);
+  const title = event.name;
   return (
-    <div className="xl:w-1/4 sm:w-1/2 w-full 2xl:w-1/5 flex flex-col items-center py-16 md:py-12 rounded-lg border">
+    <div className=" sm:w-1/2 w-full 2xl:w-1/5 flex flex-col items-center py-8 md:py-12 rounded-lg border">
       <div className="w-full flex items-center justify-center">
-        <div className="flex flex-col items-center">
+        <div className="text-center items-center">
           <img
             src={
               event.image
@@ -40,6 +40,7 @@ const DashboardEvent = ({ event, handleDelete }) => {
               minWidth: "200px",
               maxWidth: "235px",
             }}
+            className="rounded-lg"
           />
           <Link href={`/events/${event.slug}`}>
             <a className="mt-2 text-xs sm:text-sm md:text-base font-semibold text-center text-blueGray-800">
@@ -48,26 +49,64 @@ const DashboardEvent = ({ event, handleDelete }) => {
           </Link>
         </div>
       </div>
-      <div className="flex items-center mt-3 ">
+      <div className="grid gap-x-2 gap-y-1 grid-cols-2 mt-3 ">
         <Link href={`/events/edit/${event.id}`}>
-          <a>
-            <FaPencilAlt /> <span>Edit </span>
+          <a className="">
+            <FaPencilAlt className="ml-2" /> <span>Edit </span>
           </a>
         </Link>
 
-        <a className="ml-3" href="#" onClick={() => handleDelete(event.id)}>
-          <FaTimes /> <span>Delete</span>
+        <a className="" href="#" onClick={() => handleDelete(event.id)}>
+          <FaTimes className="ml-3" /> <span>Delete</span>
         </a>
       </div>
-      <div className="flex mt-5">
-        <FacebookShareButton url={shareUrl}>
+      <div className="flex mt-4">
+        <FacebookShareButton
+          url={shareUrl}
+          title={title}
+          title={title}
+          className="ml-1"
+        >
           <FacebookIcon round size={35} />
         </FacebookShareButton>
-        <EmailIcon round size={35} />
-        <LinkedinIcon round size={35} /> <PinterestIcon round size={35} />{" "}
-        <RedditIcon round size={35} />
-        <TelegramIcon round size={35} /> <TwitterIcon round size={35} />{" "}
-        <WhatsappIcon round size={35} />
+        <EmailShareButton
+          url={shareUrl}
+          subject={title}
+          body={event.description}
+        >
+          <EmailIcon round size={35} className="ml-1" />
+        </EmailShareButton>
+        <LinkedinShareButton
+          url={shareUrl}
+          title={title}
+          summary={event.description}
+        >
+          <LinkedinIcon round size={35} className="ml-1" />
+        </LinkedinShareButton>
+        <PinterestShareButton
+          url={shareUrl}
+          title={title}
+          media={
+            event.image
+              ? event.image.formats.thumbnail.url
+              : "/images/event-default.svg"
+          }
+          description={event.description}
+        >
+          <PinterestIcon round size={35} className="ml-1" />
+        </PinterestShareButton>
+        <RedditShareButton url={shareUrl} title={title}>
+          <RedditIcon round size={35} className="ml-1" />
+        </RedditShareButton>
+        <TelegramShareButton url={shareUrl} title={title}>
+          <TelegramIcon round size={35} className="ml-1" />{" "}
+        </TelegramShareButton>
+        <TwitterShareButton url={shareUrl} title={title}>
+          <TwitterIcon round size={35} className="ml-1" />
+        </TwitterShareButton>
+        <WhatsappShareButton url={shareUrl} title={title}>
+          <WhatsappIcon round size={35} className="ml-1" />
+        </WhatsappShareButton>
       </div>
     </div>
   );
