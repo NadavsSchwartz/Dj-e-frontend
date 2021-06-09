@@ -15,12 +15,12 @@ const Header = (props) => {
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <Link href="/">
-              <a className=" text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
+              <a className=" text-3xl underline font-bold inline-block mr-4 py-2 whitespace-nowrap uppercase">
                 DJE
               </a>
             </Link>
             <button
-              className="cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-transparent block lg:hidden outline-none focus:outline-none"
+              className="cursor-pointer text-xl  px-3 border border-solid  rounded  block lg:hidden focus:outline-none"
               type="button"
               onClick={() => setNavbarOpen(!navbarOpen)}
             >
@@ -77,6 +77,9 @@ const Header = (props) => {
               ) : (
                 // If logged out
                 <>
+                  <li className="flex items-center text-black">
+                    <Search />
+                  </li>
                   <li className="flex items-center">
                     <Link href="/account/login">
                       <a className="hover:text-blueGray-500 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold">

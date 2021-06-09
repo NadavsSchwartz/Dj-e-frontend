@@ -37,11 +37,11 @@ const DashboardPage = ({ events, token }) => {
         <div className="flex flex-wrap h-screen">
           <div className="w-full ">
             <div className="relative bg-blueGray-800 md:pt-32 pb-32 pt-12">
-              <div className="px-4 md:px-10 mx-auto w-full">
-                <div className="flex flex-wrap">
+              <div className="px-4 md:px-10  mx-auto w-full">
+                <div className="flex flex-wrap py-5">
                   {events.length > 0 ? (
                     <>
-                      <div className="w-full lg:w-6/12 xl:w-4/12 px-4">
+                      <div className="w-full md:w-8/12 lg:w-6/12 xl:w-4/12 px-4">
                         <CardStats
                           statSubtitle="ENGAGEMENT"
                           statTitle="0"

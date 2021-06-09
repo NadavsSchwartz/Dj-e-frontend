@@ -20,6 +20,11 @@ const Search = () => {
           value={term}
           onChange={(e) => setTerm(e.target.value)}
           placeholder="Search Events"
+          className="rounded-lg"
+        />
+        <input
+          type="submit"
+          className="text-white bg-blueGray-800 ml-2 px-1 py-4 uppercase font-bold text-xs"
         />
       </form>
     </div>
