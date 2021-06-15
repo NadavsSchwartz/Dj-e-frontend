@@ -18,7 +18,7 @@ const Layout = ({ title, keywords, description, children }) => {
         />
       </Head>
       <Header />
-      <div>{children}</div>
+      <div className="">{children}</div>
       <Footer />{" "}
     </div>
   );

@@ -1,3 +1,4 @@
+import EventMap from "@/components/EventMap";
 import Layout from "@/components/Layout";
 import { API_URL } from "@/config/index";
 
@@ -92,6 +93,10 @@ const EventPage = ({ event }) => {
                     <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
                     {event.address}
                   </div>
+                  <div className="flex flex-wrap">
+                    <EventMap event={event} />
+                  </div>
+
                   <div className="mb-2 text-blueGray-600 mt-10">
                     <i className="fas fa-child mr-2 text-lg text-blueGray-400"></i>
                     {event.performers}

@@ -5,7 +5,7 @@ import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import AuthContext from "@/context/AuthContext";
-import styles from "@/styles/AuthForm.module.css";
+
 
 const RegisterPage = () => {
   const [username, setUsername] = useState("");
@@ -30,7 +30,7 @@ const RegisterPage = () => {
 
   return (
     <Layout title="User Registration">
-      <div className={styles.auth}>
+      <div className="">
         <h1>
           <FaUser /> Register
         </h1>

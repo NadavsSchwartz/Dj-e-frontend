@@ -36,6 +36,7 @@ const LoginPage = () => {
                 <div className="rounded-t mb-0 px-6 py-6">
                   <div className="text-center mb-3"></div>
                   <ToastContainer />
+
                   <form onSubmit={handleSubmit}>
                     <div className="relative w-full mb-3">
                       <label
@@ -45,6 +46,7 @@ const LoginPage = () => {
                         Email
                       </label>
                       <input
+                        required
                         type="email"
                         id="email"
                         value={email}
@@ -62,6 +64,7 @@ const LoginPage = () => {
                         Password
                       </label>
                       <input
+                        required
                         type="password"
                         id="password"
                         value={password}
