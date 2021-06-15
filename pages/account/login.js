@@ -34,14 +34,19 @@ const LoginPage = () => {
             <div className="w-full lg:w-8/12 px-2">
               <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-200 border-0">
                 <div className="rounded-t mb-0 px-6 py-6">
-                  <div className="text-center mb-3"></div>
+                  <div className="text-center mb-3">
+                    <h1 className=" text-2xl font-bold uppercase underline flex justify-center">
+                      {" "}
+                      Login
+                    </h1>
+                  </div>
                   <ToastContainer />
 
                   <form onSubmit={handleSubmit}>
                     <div className="relative w-full mb-3">
                       <label
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="grid-password"
+                        htmlFor="email"
                       >
                         Email
                       </label>
@@ -51,7 +56,7 @@ const LoginPage = () => {
                         id="email"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full "
                         placeholder="Email"
                       />
                     </div>
@@ -59,7 +64,7 @@ const LoginPage = () => {
                     <div className="relative w-full mb-3">
                       <label
                         className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
-                        htmlFor="grid-password"
+                        htmlFor="password"
                       >
                         Password
                       </label>
@@ -69,7 +74,7 @@ const LoginPage = () => {
                         id="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
-                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                        className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full "
                         placeholder="Password"
                       />
                     </div>
@@ -78,7 +83,7 @@ const LoginPage = () => {
                         <input
                           id="customCheckLogin"
                           type="checkbox"
-                          className="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 ease-linear transition-all duration-150"
+                          className="form-checkbox border-0 rounded text-blueGray-700 ml-1 w-5 h-5 "
                         />
                         <span className="ml-2 text-sm font-semibold text-blueGray-600">
                           Remember me
@@ -86,9 +91,9 @@ const LoginPage = () => {
                       </label>
                     </div>
 
-                    <div className="text-center mt-6">
+                    <div className="text-center mt-3">
                       <button
-                        className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
+                        className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full "
                         type="submit"
                         value="Login"
                       >
@@ -98,7 +103,12 @@ const LoginPage = () => {
                   </form>
                   <p>
                     Don't have an account?{" "}
-                    <Link href="/account/register">Register</Link>
+                    <Link href="/account/register">
+                      <a className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase py-1 px-2 rounded shadow hover:shadow-lg outline-none  ">
+                        {" "}
+                        Register
+                      </a>
+                    </Link>
                   </p>
                 </div>
               </div>
