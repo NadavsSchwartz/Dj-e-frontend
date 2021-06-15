@@ -5,7 +5,7 @@ import { API_URL } from "@/config/index";
 const EventPage = ({ event }) => {
   console.log(event);
   return (
-    <main className="">
+    <main>
       <Layout>
         <section className="relative block h-600-px">
           <div
@@ -89,21 +89,21 @@ const EventPage = ({ event }) => {
                     {new Date(event.date).toLocaleDateString("en-US")} at{" "}
                     {event.time}
                   </h3>
-                  <div className="text-sm leading-normal mt-0 mb-2 text-blueGray-400 font-bold uppercase">
+
+                  <div className="mb-2 text-blueGray-600 mt-10 text-xl">
+                    <i className="fas fa-child mr-2 text-lg text-blueGray-400"></i>
+                    {event.performers}
+                  </div>
+                  <div className="mb-2 text-blueGray-600 text-xl">
+                    <i className="fas fa-home mr-2 text-lg text-blueGray-400"></i>
+                    {event.venue}
+                  </div>
+                  <div className=" leading-normal mt-0 mb-2 text-xl text-blueGray-400 font-bold uppercase">
                     <i className="fas fa-map-marker-alt mr-2 text-lg text-blueGray-400"></i>{" "}
                     {event.address}
                   </div>
                   <div className="flex flex-wrap">
                     <EventMap event={event} />
-                  </div>
-
-                  <div className="mb-2 text-blueGray-600 mt-10">
-                    <i className="fas fa-child mr-2 text-lg text-blueGray-400"></i>
-                    {event.performers}
-                  </div>
-                  <div className="mb-2 text-blueGray-600">
-                    <i className="fas fa-home mr-2 text-lg text-blueGray-400"></i>
-                    {event.venue}
                   </div>
                 </div>
                 <div className="mt-10 py-10 border-t border-blueGray-200 text-center">

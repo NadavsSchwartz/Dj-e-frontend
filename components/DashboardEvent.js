@@ -56,21 +56,7 @@ const DashboardEvent = ({ event, handleDelete }) => {
               className="rounded-lg"
             />
           )}
-          {/* <img
-            src={
-              event.image
-                ? event.image.formats.thumbnail.url
-                : "/images/event-default.svg"
-            }
-            alt="profile"
-            style={{
-              minHeight: "200px",
-              maxHeight: "235px",
-              minWidth: "200px",
-              maxWidth: "235px",
-            }}
-            className="rounded-lg"
-          /> */}
+
           <Link href={`/events/${event.slug}`}>
             <a className="mt-2 text-xs sm:text-sm md:text-base font-semibold text-center text-blueGray-800">
               Event Name: {event.name}
@@ -89,7 +75,7 @@ const DashboardEvent = ({ event, handleDelete }) => {
           <FaTimes className="ml-3" /> <span>Delete</span>
         </a>
       </div>
-      <div className="flex mt-4">
+      <div className="flex flex-wrap">
         <FacebookShareButton
           url={shareUrl}
           title={title}

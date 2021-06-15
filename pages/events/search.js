@@ -12,7 +12,7 @@ const SearchPage = ({ events }) => {
     <main>
       <Layout title="Search Results">
         <div className="py-20 min-h-screen-75">
-          <div className="text-xl m-4">
+          <div className="text-xl m-4 p-5">
             <Link href="/events">
               <a
                 href="/events"
@@ -30,10 +30,11 @@ const SearchPage = ({ events }) => {
               No events to show, try again please
             </h3>
           )}
-
-          {events.map((event) => (
-            <EventItem key={event.id} event={event} />
-          ))}
+          <div className="container mx-auto px-4">
+            {events.map((event) => (
+              <EventItem key={event.id} event={event} />
+            ))}
+          </div>
         </div>
       </Layout>
     </main>

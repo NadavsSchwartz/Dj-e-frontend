@@ -7,7 +7,7 @@ import { container } from "tailwindcss/defaultTheme";
 
 const Layout = ({ title, keywords, description, children }) => {
   return (
-    <div className="w-full h-full">
+    <div className="">
       <Head>
         <title>{title}</title>
         <meta name="description" content={description} />
@@ -18,7 +18,7 @@ const Layout = ({ title, keywords, description, children }) => {
         />
       </Head>
       <Header />
-      <div className="">{children}</div>
+      <div className="relative">{children}</div>
       <Footer />{" "}
     </div>
   );

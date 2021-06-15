@@ -32,12 +32,12 @@ const DashboardPage = ({ events, token }) => {
   };
 
   return (
-    <main className="min-h-screen">
+    <main className=" min-h-screen-75">
       <Layout title="User Dashboard">
-        <div className="flex flex-wrap h-screen">
+        <div className="flex flex-wrap ">
           <div className="w-full ">
             <div className="relative bg-blueGray-800 md:pt-32 pb-32 pt-12">
-              <div className="px-4 md:px-10  mx-auto w-full">
+              <div className=" md:px-10  mx-auto w-full">
                 <div className="flex flex-wrap py-5 ">
                   {events.length > 0 ? (
                     <>
@@ -117,14 +117,17 @@ const DashboardPage = ({ events, token }) => {
                 </div>
               </div>
             </div>
-            <div className="w-full flex items-center justify-center sm:flex flex-col relative">
+
+            <div className="flex flex-wrap p-2 m-2 justify-center">
               {events.length > 0 ? (
                 events.map((evt) => (
-                  <DashboardEvent
-                    key={evt.id}
-                    event={evt}
-                    handleDelete={deleteEvent}
-                  />
+                  <div className="m-1">
+                    <DashboardEvent
+                      key={evt.id}
+                      event={evt}
+                      handleDelete={deleteEvent}
+                    />
+                  </div>
                 ))
               ) : (
                 <p

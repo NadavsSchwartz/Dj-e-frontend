@@ -25,15 +25,6 @@ const EventItem = ({ event }) => {
               className="inset-0 h-full w-full object-cover"
             />
           )}
-          {/* <img
-            className="inset-0 h-full w-full object-cover"
-            src={
-              event.image
-                ? event.image.formats.medium.url
-                : "/images/event-default.svg"
-            }
-            alt={event.name}
-          /> */}
         </Link>
       </div>
       <div className="w-full py-4 px-6 bg-blueGray-800 flex flex-col justify-between">
@@ -43,8 +34,10 @@ const EventItem = ({ event }) => {
         <p className="mt-2">
           {new Date(event.date).toLocaleDateString("en-US")} at {event.time}
         </p>
-        <p>{event.description}</p>
-        <p className="text-sm  uppercase tracking-wide font-semibold mt-2">
+        <p className="p-4 italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote">
+          {event.description}
+        </p>
+        <p className="text-sm quote uppercase tracking-wide font-semibold mt-2">
           <Link href={`/events/${event.slug}`}>
             <a className="text-xl">
               MORE Details<i className="fas fa-arrow-right"></i>
