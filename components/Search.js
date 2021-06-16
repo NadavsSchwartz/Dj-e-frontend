@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { ToastContainer } from "react-toastify";
 
 const Search = () => {
   const [term, setTerm] = useState("");
@@ -12,15 +11,11 @@ const Search = () => {
     if (term.length > 0) {
       router.push(`/events/search?term=${term}`);
       setTerm("");
-    } else {
-      toast.error("search can not be empty");
     }
   };
 
   return (
     <div>
-      <ToastContainer />
-
       <form onSubmit={handleSubmit}>
         <input
           required
