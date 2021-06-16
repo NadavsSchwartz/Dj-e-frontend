@@ -69,7 +69,6 @@ const DashboardPage = ({ events, token }) => {
                         <CardStats
                           statSubtitle="NEAREST EVENT"
                           statTitle={events[0].name}
-                          statPercent={(events.length - 0) * 100}
                           statDescripiron={`${new Date(
                             events[0].date
                           ).toLocaleDateString("en-US")} at ${events[0].time}`}

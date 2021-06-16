@@ -195,7 +195,7 @@ select {
     text-transform: none;
 }
 
-/ button,
+button,
 [type='button'],
 [type='reset'],
 [type='submit'] {

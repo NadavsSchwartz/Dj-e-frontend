@@ -1,7 +1,5 @@
 import Layout from "@/components/Layout";
-import { API_URL } from "@/config/index";
 import Link from "next/link";
-import EventItem from "../components/EventItem";
 import { parseCookies } from "../helpers";
 
 const HomePage = () => {

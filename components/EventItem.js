@@ -1,6 +1,7 @@
 import Link from "next/link";
 
 const EventItem = ({ event }) => {
+  debugger;
   return (
     <div className="flex flex-col md:flex-row  text-white rounded-lg shadow-xl border mt-5  mx-2 ">
       <div
@@ -35,7 +36,9 @@ const EventItem = ({ event }) => {
           {new Date(event.date).toLocaleDateString("en-US")} at {event.time}
         </p>
         <p className="p-4 italic border-l-4 bg-neutral-100 text-neutral-600 border-neutral-500 quote">
-          {event.description}
+          {event.description.length > 200
+            ? event.description.substring(0, 200) + "..."
+            : event.description}
         </p>
         <p className="text-sm quote uppercase tracking-wide font-semibold mt-2">
           <Link href={`/events/${event.slug}`}>
@@ -50,27 +53,3 @@ const EventItem = ({ event }) => {
 };
 
 export default EventItem;
-
-//       src={
-//         event.image
-//           ? event.image.formats.thumbnail.url
-//           : "/images/event-default.png"
-//       }
-//       width={170}
-//       height={100}
-//     />
-//   </div>
-
-//   <div className={styles.info}>
-//     <span>
-//       {new Date(event.date).toLocaleDateString("en-US")} at {event.time}
-//     </span>
-//     <h3>{event.name}</h3>
-//   </div>
-
-//   <div className={styles.link}>
-//     <Link href={`/events/${event.slug}`}>
-//       <a className="btn">Details</a>
-//     </Link>
-//   </div>
-// </div>

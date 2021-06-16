@@ -37,7 +37,7 @@ const LoginPage = () => {
                   <div className="text-center mb-3">
                     <h1 className=" text-2xl font-bold uppercase underline flex justify-center">
                       {" "}
-                      Login
+                      SIGN IN
                     </h1>
                   </div>
                   <ToastContainer />

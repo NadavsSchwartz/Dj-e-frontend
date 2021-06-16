@@ -3,7 +3,6 @@ import Search from "./Search";
 import { FaSignInAlt } from "react-icons/fa";
 import AuthContext from "@/context/AuthContext";
 import { useContext, useState } from "react";
-import SearchPage from "pages/events/search";
 
 const Header = (props) => {
   const { user, logout } = useContext(AuthContext);
@@ -75,7 +74,6 @@ const Header = (props) => {
                   </li>
                 </>
               ) : (
-                // If logged out
                 <>
                   <li className="flex items-center text-black">
                     <Search />

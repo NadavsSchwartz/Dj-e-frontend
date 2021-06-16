@@ -7,7 +7,7 @@ const EventsPage = ({ events, page, total }) => {
   return (
     <main className="min-h-screen-75">
       <Layout>
-        <h1 className="py-20 text-center font-serif  uppercase text-4xl xl:text-5xl">
+        <h1 className="py-20 mt-5 text-center font-bold underline uppercase text-4xl xl:text-5xl">
           Upcoming Events
         </h1>
         <div className="container  lg:w-4/5 mx-auto flex flex-col m-2 ">

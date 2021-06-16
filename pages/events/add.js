@@ -6,8 +6,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Layout from "@/components/Layout";
 import { API_URL } from "@/config/index";
-import Modal from "@/components/Modal";
-import ImageUpload from "@/components/ImageUpload";
 
 const AddEventPage = ({ token }) => {
   const [values, setValues] = useState({
@@ -26,7 +24,6 @@ const AddEventPage = ({ token }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validation
     const hasEmptyFields = Object.values(values).some(
       (element) => element === ""
     );

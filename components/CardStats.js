@@ -1,4 +1,3 @@
-import React from "react";
 import PropTypes from "prop-types";
 
 const CardStats = ({
@@ -46,7 +45,7 @@ const CardStats = ({
                     : ""
                 }
               ></i>{" "}
-              {statPercent ? statPercent + "%" : ""}
+              {statPercent ? statPercent + "%" : null}
             </span>
             <span className="whitespace-nowrap">{statDescripiron}</span>
           </p>
@@ -63,9 +62,7 @@ CardStats.propTypes = {
   statSubtitle: PropTypes.string,
   statTitle: PropTypes.string,
   statArrow: PropTypes.oneOf(["up", "down"]),
-
   statPercentColor: PropTypes.string,
   statIconName: PropTypes.string,
-
   statIconColor: PropTypes.string,
 };

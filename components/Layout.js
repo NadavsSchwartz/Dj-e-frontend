@@ -1,9 +1,7 @@
 import Head from "next/head";
 
-import { useRouter } from "next/router";
 import Header from "./Header";
 import Footer from "./Footer";
-import { container } from "tailwindcss/defaultTheme";
 
 const Layout = ({ title, keywords, description, children }) => {
   return (

@@ -32,7 +32,7 @@ export default function EditEventPage({ event, token }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validation
+
     const hasEmptyFields = Object.values(values).some(
       (element) => element === ""
     );
