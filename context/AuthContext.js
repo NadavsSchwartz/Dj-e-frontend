@@ -12,7 +12,6 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => checkUserLoggedIn(), []);
 
-  // Register user
   const register = async (user) => {
     const res = await fetch(`${NEXT_URL}/api/register`, {
       method: "POST",
@@ -33,7 +32,6 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  // Login user
   const login = async ({ email: identifier, password }) => {
     const res = await fetch(`${NEXT_URL}/api/login`, {
       method: "POST",
