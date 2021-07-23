@@ -24,7 +24,7 @@ https://socialevents.vercel.app/
 
 ### Back End
 
-* Next JS
+* Strapi
 
 ### Front End
 
