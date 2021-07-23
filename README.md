@@ -1,7 +1,5 @@
 ## DJE
-DJ Events platform built with NextJS and Tailwind CSS
-Utilizes React-share for socially sharing events
-
+DJ Events platform is built with NextJS and Tailwind CSS.
 
 ## FEATURES
 Full featured Events Platform
